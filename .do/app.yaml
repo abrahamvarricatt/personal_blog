@@ -1,0 +1,20 @@
+name: personal-blog
+region: nyc
+static_sites:
+- build_command: hugo version; hugo -d public
+  environment_slug: hugo
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: abrahamvarricatt/personal_blog
+  name: personal-blog
+  output_dir: public
+  envs:
+  - key: HUGO_VERSION
+    scope: BUILD_TIME
+    value: 0.81.0
+  - key: HUGO_EXTENDED
+    scope: BUILD_TIME
+    value: 1
+  routes:
+  - path: /
